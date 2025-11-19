@@ -31,10 +31,8 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-base",
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-md"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-base bg-background shadow-md",
+        scrolled && "backdrop-blur-md"
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
@@ -43,10 +41,7 @@ export default function Navbar() {
             <GraduationCap className="h-8 w-8 text-primary group-hover:text-primary-light transition-base" />
             <div className="flex flex-col">
               <span className="text-lg font-serif font-bold text-foreground">
-                Geetanjali
-              </span>
-              <span className="text-xs text-muted-foreground">
-                English Medium High School
+                Geetanjali Model School
               </span>
             </div>
           </Link>
