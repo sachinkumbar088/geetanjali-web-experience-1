@@ -31,13 +31,16 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-base bg-background shadow-md",
+        "fixed top-0 left-0 right-0 z-50 transition-base bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 shadow-md",
         scrolled && "backdrop-blur-md"
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <div className="flex lg:flex-1">
-          <Link to="/" className="flex items-center gap-2 group">
+        <div className="flex lg:flex-1 mx-4">
+          <Link
+            to="/"
+            className="flex items-center gap-2 group bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 p-2 rounded-md"
+          >
             <GraduationCap className="h-8 w-8 text-primary group-hover:text-primary-light transition-base" />
             <div className="flex flex-col">
               <span className="text-lg font-serif font-bold text-foreground">
@@ -66,10 +69,10 @@ export default function Navbar() {
               key={item.name}
               to={item.href}
               className={cn(
-                "text-sm font-medium transition-base relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform hover:after:origin-bottom-left hover:after:scale-x-100",
+                "text-sm font-medium text-white transition-base relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform hover:after:origin-bottom-left hover:after:scale-x-100",
                 location.pathname === item.href
-                  ? "text-primary"
-                  : "text-foreground hover:text-primary"
+                  ? "bg-blue-500 text-white pr-4"
+                  : "hover:text-primary"
               )}
             >
               {item.name}
