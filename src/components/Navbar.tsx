@@ -63,19 +63,22 @@ export default function Navbar() {
             )}
           </Button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-8">
+        <div className="hidden lg:flex lg:gap-x-3">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
               className={cn(
-                "text-sm font-medium text-white transition-base relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform hover:after:origin-bottom-left hover:after:scale-x-100",
+                "text-sm font-medium text-white relative px-3 py-2 rounded-md transition-all duration-300 ease-out",
+                "before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-center before:scale-x-0 before:bg-white before:transition-transform before:duration-300 before:ease-out",
+                "after:absolute after:inset-0 after:bg-white/10 after:rounded-md after:opacity-0 after:transition-opacity after:duration-300 after:ease-out",
+                "hover:before:scale-x-100 hover:after:opacity-100 hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-white/20",
                 location.pathname === item.href
-                  ? "bg-blue-500 text-white pr-4"
-                  : "hover:text-primary"
+                  ? "bg-blue-500/80 text-white shadow-md before:scale-x-100 before:bg-white"
+                  : ""
               )}
             >
-              {item.name}
+              <span className="relative z-10">{item.name}</span>
             </Link>
           ))}
         </div>
@@ -94,10 +97,12 @@ export default function Navbar() {
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
-                  "block rounded-lg px-3 py-2 text-base font-medium transition-base",
+                  "block rounded-lg px-3 py-2 text-base font-medium transition-all duration-300 ease-out",
+                  "relative overflow-hidden",
+                  "before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-primary before:scale-y-0 before:transition-transform before:duration-300 before:ease-out",
                   location.pathname === item.href
-                    ? "bg-primary-lighter text-primary"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-primary/10 text-primary shadow-sm before:scale-y-100 pl-5"
+                    : "text-foreground hover:bg-primary/5 hover:pl-5 hover:shadow-sm hover:before:scale-y-100"
                 )}
               >
                 {item.name}
