@@ -36,19 +36,18 @@ export default function Navbar() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <div className="flex lg:flex-1 mx-4">
-          <Link
-            to="/"
-            className="flex items-center gap-2 group bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 p-2 rounded-md"
-          >
-            <GraduationCap className="h-8 w-8 text-primary group-hover:text-primary-light transition-base" />
-            <div className="flex flex-col">
-              <span className="text-lg font-serif font-bold text-foreground">
-                Geetanjali Model School
-              </span>
-            </div>
-          </Link>
-        </div>
+        {/* Logo - Left Corner */}
+        <Link
+          to="/"
+          className="flex items-center gap-2 group bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 p-2 rounded-md"
+        >
+          <GraduationCap className="h-8 w-8 text-primary group-hover:text-primary-light transition-base" />
+          <span className="text-lg font-serif font-bold text-foreground whitespace-nowrap">
+            Geetanjali Model School
+          </span>
+        </Link>
+
+        {/* Mobile Menu Button */}
         <div className="flex lg:hidden">
           <Button
             variant="ghost"
@@ -63,6 +62,8 @@ export default function Navbar() {
             )}
           </Button>
         </div>
+
+        {/* Desktop Navigation - Center */}
         <div className="hidden lg:flex lg:gap-x-3">
           {navigation.map((item) => (
             <Link
@@ -82,7 +83,9 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+
+        {/* Apply Now Button - Right Corner */}
+        <div className="hidden lg:flex">
           <Button variant="default" asChild className="font-medium">
             <Link to="/admissions">Apply Now</Link>
           </Button>
